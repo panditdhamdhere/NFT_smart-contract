@@ -39,4 +39,6 @@ contract BasicNftTest is Test {
                 keccak256(abi.encodePacked(basicNft.tokenURI(0)))
         );
     }
+
+    
 }
