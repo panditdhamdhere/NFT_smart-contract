@@ -3,7 +3,8 @@
 pragma solidity ^0.8.19;
 
 import {Test} from "forge-std/Test.sol";
-import {DeployBasicNft} from "../src/script/DeployBasicNft.s.sol";
+// import {DeployBasicNft} from "../src/script/DeployBasicNft.s.sol";
+import {DeployBasicNft} from "../script/DeployBasicNft.s.sol";
 import {BasicNft} from "../src/BasicNft.sol";
 
 contract BasicNftTest is Test {
@@ -18,6 +19,10 @@ contract BasicNftTest is Test {
     function testNameIsCorrect() public view {
         string memory expectedName = "Dogie";
         string memory actualName = basicNft.name();
-        assert ()
+        //assert (expectedName == actualName);
+        assert(
+            keccak256(abi.encodePacked(expectedName)) ==
+                keccak256(abi.encodePacked(actualName))
+        );
     }
 }
